@@ -1,0 +1,20 @@
+#spring:
+#  datasource:
+#    driver-class-name: #    url: jdbc:mysql://mysql.malu.kinghost.net:3306/malu?useSSL=false&serverTimezone=UTC
+#    username: malu_add1
+#    password: malu2019    
+     
+#spring: 
+#  datasource:#    schema:#    - order-schema.sql
+#    - ingredient-schema.sql
+#    - taco-schema.sql
+#    - user-schema.sql
+#    data:
+#    - ingredients.sql
+
+server:
+  port: 8443
+  ssl:    key-store: file:C:\Users\cristianoca\Documents\keystore\mykeys.jks
+    key-store-password: 41042075@Xx
+    key-password: 41042075@Xx     
+     
