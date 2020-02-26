@@ -1,21 +1,40 @@
 package br.com.salao;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.transaction.annotation.Transactional;
 
-import br.com.salao.entity.Ingredient;
-import br.com.salao.entity.Ingredient.Type;
+import br.com.salao.entity.User;
+import br.com.salao.repository.OrderRepositorySpringData;
+import br.com.salao.repository.UserRepository;
 
 @SpringBootTest
+@Transactional
+@ConfigurationProperties(prefix = "taco.orders")
 class TacoCloud01ApplicationTests {
 
+	@Autowired
+	private UserRepository userRepo;
+	
+	@Autowired
+	private OrderRepositorySpringData orderRepo;
+	
+	private int pageSize = 20;
+	
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+	
 	@Test
 	void contextLoads() {
-		
+		System.out.println(pageSize);
+		User user1 = userRepo.findById(1L).get();
+		Pageable pageable = PageRequest.of(0, pageSize);
+		System.out.println(orderRepo.findByUserOrderByPlacedAtDesc(user1, pageable));
 //		List<Ingredient> ingredients = Arrays.asList(
 //			new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
 //			new Ingredient("COTO", "Corn Tortilla",  Type.WRAP),

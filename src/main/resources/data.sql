@@ -1,10 +1,10 @@
 
-
---delete from Taco_ingredients;
---delete from Taco_Order_Tacos;
---delete from Taco_Order;
---delete from Taco;
---delete from Ingredient;
+/*
+delete from Taco_ingredients;
+delete from Taco_Order_Tacos;
+delete from Taco_Order;
+delete from Taco;
+delete from Ingredient;*/
   
   /*
 insert into Ingredient(id, codigo, name, type)values(10001, 'FLTO', 'Flour Tortilla', 'WRAP');

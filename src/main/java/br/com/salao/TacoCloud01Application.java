@@ -1,6 +1,7 @@
 package br.com.salao;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,17 +16,28 @@ import br.com.salao.entity.Group;
 import br.com.salao.entity.Ingredient;
 import br.com.salao.entity.User;
 import br.com.salao.entity.Ingredient.Type;
+import br.com.salao.entity.Order;
+import br.com.salao.entity.Taco;
 import br.com.salao.repository.AuthorityRepository;
 import br.com.salao.repository.GroupRepository;
 import br.com.salao.repository.IngredientRepositorySpringData;
+import br.com.salao.repository.OrderRepositorySpringData;
+import br.com.salao.repository.TacoRepositorySpringData;
 import br.com.salao.repository.UserRepository;
 
 @SpringBootApplication
 public class TacoCloud01Application implements WebMvcConfigurer, CommandLineRunner{
 	
+	
 	@Autowired
 	//private IngredientRepository ingredientRepository;
 	private IngredientRepositorySpringData ingredientRepository;
+	
+	@Autowired
+	private TacoRepositorySpringData tacoRepo;
+	
+	@Autowired
+	private OrderRepositorySpringData orderRepo;
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -124,6 +136,104 @@ public class TacoCloud01Application implements WebMvcConfigurer, CommandLineRunn
 			ingredientRepository.save(ingredient);
 		}
 			
+		
+		
+		Taco t1 = new Taco("t1 dfdfsd", new Date(), ingredients);
+		tacoRepo.save(t1);
+		
+		Order or1 = new Order();
+		or1.setName("novo order 1");
+		or1.setStreet("rua novo order");
+		or1.setCity("São Paulo");
+		or1.setState("São Paulo");
+		or1.setZip("05659020");
+		or1.setCcNumber("12121");
+		or1.setCcExpiration("1212");
+		or1.setCcCVV("0212");		
+		or1.addTaco(t1);
+		
+		Order or2 = new Order();
+		or2.setName("novo order 1");
+		or2.setStreet("rua novo order");
+		or2.setCity("São Paulo");
+		or2.setState("São Paulo");
+		or2.setZip("05659020");
+		or2.setCcNumber("12121");
+		or2.setCcExpiration("1212");
+		or2.setCcCVV("0212");		
+		or2.addTaco(t1);
+		
+		Order or3 = new Order();
+		or3.setName("novo order 1");
+		or3.setStreet("rua novo order");
+		or3.setCity("São Paulo");
+		or3.setState("São Paulo");
+		or3.setZip("05659020");
+		or3.setCcNumber("12121");
+		or3.setCcExpiration("1212");
+		or3.setCcCVV("0212");		
+		or3.addTaco(t1);
+		
+		Order or4 = new Order();
+		or4.setName("novo order 1");
+		or4.setStreet("rua novo order");
+		or4.setCity("São Paulo");
+		or4.setState("São Paulo");
+		or4.setZip("05659020");
+		or4.setCcNumber("12121");
+		or4.setCcExpiration("1212");
+		or4.setCcCVV("0212");		
+		or4.addTaco(t1);
+		
+		Order or5 = new Order();
+		or5.setName("novo order 1");
+		or5.setStreet("rua novo order");
+		or5.setCity("São Paulo");
+		or5.setState("São Paulo");
+		or5.setZip("05659020");
+		or5.setCcNumber("12121");
+		or5.setCcExpiration("1212");
+		or5.setCcCVV("0212");		
+		or5.addTaco(t1);
+		
+		Order or6 = new Order();
+		or6.setName("novo order 1");
+		or6.setStreet("rua novo order");
+		or6.setCity("São Paulo");
+		or6.setState("São Paulo");
+		or6.setZip("05659020");
+		or6.setCcNumber("12121");
+		or6.setCcExpiration("1212");
+		or6.setCcCVV("0212");		
+		or6.addTaco(t1);
+		
+		Order or7 = new Order();
+		or7.setName("novo order 1");
+		or7.setStreet("rua novo order");
+		or7.setCity("São Paulo");
+		or7.setState("São Paulo");
+		or7.setZip("05659020");
+		or7.setCcNumber("12121");
+		or7.setCcExpiration("1212");
+		or7.setCcCVV("0212");		
+		or7.addTaco(t1);
+		
+		
+		or1.setUser(user1);
+		or2.setUser(user1);
+		or3.setUser(user1);
+		or4.setUser(user1);
+		or5.setUser(user1);
+		or6.setUser(user1);
+		or7.setUser(user1);
+					
+		orderRepo.save(or1);
+		orderRepo.save(or2);
+		orderRepo.save(or3);
+		orderRepo.save(or4);
+		orderRepo.save(or5);
+		orderRepo.save(or6);
+		orderRepo.save(or7);
 		
 	}
 

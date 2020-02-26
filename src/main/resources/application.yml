@@ -1,3 +1,5 @@
+spring:  profiles:    active:    - dev
+
 #spring:
 #  datasource:
 #    driver-class-name: #    url: jdbc:mysql://mysql.malu.kinghost.net:3306/malu?useSSL=false&serverTimezone=UTC
@@ -11,10 +13,25 @@
 #    - user-schema.sql
 #    data:
 #    - ingredients.sql
-
+---spring:  profiles: dev  
 server:
   port: 8443
   ssl:    key-store: file:C:\Users\cristianoca\Documents\keystore\mykeys.jks
     key-store-password: 41042075@Xx
-    key-password: 41042075@Xx     
+    key-password: 41042075@Xx
+    
+
+taco:
+  orders:    pageSize: 7        
+logging:  level:    br: DEBUG     
+    
+---
+spring:  profiles: prod
+  
+  datasource:
+    url: jdbc:mysql://mysql.malu.kinghost.net:3306/malu?useSSL=false&serverTimezone=UTC 
+    username: malu_add1
+    password: malu2019     
+    
+logging:  level:    br: WARN    
      

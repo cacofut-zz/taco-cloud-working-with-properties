@@ -52,8 +52,18 @@ public class User implements UserDetails {
 	public void addAuthority(Authority authority) {
 		authorities.add(authority);
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", fullname=" + fullname
+				+ ", street=" + street + ", city=" + city + ", state=" + state + ", zip=" + zip + ", phoneNumber="
+				+ phoneNumber + ", enabled=" + enabled + ", accountNonExpired=" + accountNonExpired
+				+ ", accountNonLocked=" + accountNonLocked + ", credentialsNonExpired=" + credentialsNonExpired
+				+ ", authorities=" + authorities + "]";
+	}
 		
 
+	
 	
 
 }
